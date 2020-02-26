@@ -1,4 +1,4 @@
-﻿using DB.Entities;
+﻿using Contracts.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,7 @@ namespace DB
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Accident> Accidents { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public CarAccidentContext()
         {
@@ -46,6 +47,20 @@ namespace DB
                 a.Property(p => p.CreatingTime).IsRequired();
 
                 a.HasOne(p => p.User).WithMany(u => u.Accidents).HasForeignKey(p => p.UserId);
+
+                //a.HasIndex(p => p.UserId);
+            });
+
+            modelBuilder.Entity<Message>(m =>
+            {
+                m.HasKey(p => p.Id);
+                m.Property(p => p.Id).ValueGeneratedOnAdd();
+
+                m.HasOne(p => p.SenderUser).WithMany().HasForeignKey(msg => msg.SenderUserId);
+                m.HasOne(p => p.ReceiverUser).WithMany().HasForeignKey(msg => msg.ReceiverUserId);
+                
+                //m.HasIndex(msg => new { msg.SenderUserId, msg.ReceiverUserId });
+               
             });
         }
     }

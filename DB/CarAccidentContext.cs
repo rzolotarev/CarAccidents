@@ -42,7 +42,6 @@ namespace DB
                 a.Property(p => p.Id).ValueGeneratedOnAdd();
 
                 a.Property(p => p.Address).HasMaxLength(1000);
-                a.Property(p => p.GpsCoordinates).HasMaxLength(50);
 
                 a.Property(p => p.CreatingTime).IsRequired();
 

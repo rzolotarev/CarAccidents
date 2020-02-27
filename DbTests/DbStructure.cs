@@ -38,7 +38,7 @@ namespace DbTests
                             .Options;
 
             var user = new User() { Name = "Kolya", Email = "k@gmail.com", NotificationMode = Contracts.NotificationMode.LessThan20Km };
-            var accident = new Accident() { User = user, CreatingTime = DateTime.UtcNow, GpsCoordinates = "0.1, 0.2" };
+            var accident = new Accident() { User = user, CreatingTime = DateTime.UtcNow, GpsLongitude = 0.1, GpsLatitude = 0.2 };
             using (var context = new CarAccidentContext(options))
             {
                 
@@ -50,7 +50,7 @@ namespace DbTests
             {
                 Assert.Equal(1, context.Accidents.Count());
                 Assert.Equal(user.Id, context.Accidents.Single().UserId);
-                Assert.Equal("0.1, 0.2", context.Accidents.Single().GpsCoordinates);
+                Assert.Equal(0.1, context.Accidents.Single().GpsLongitude);
             }
         }
 

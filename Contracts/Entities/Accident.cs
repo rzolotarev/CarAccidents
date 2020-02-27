@@ -12,12 +12,16 @@ namespace Contracts.Entities
 
         public string Address { get; set; }
 
-        public string GpsCoordinates { get; set; }
+        public double GpsLongitude { get; set; }
+
+        public double GpsLatitude { get; set; }
 
         public DateTime CreatingTime { get; set; }
 
         public DateTime? CompletingTime { get; set; }
 
         public User User { get; set; }
+
+        public double Distance { get; set; }
     }
 }

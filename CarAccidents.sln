@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarAccidents", "CarAccidents\CarAccidents.csproj", "{C98ED190-1965-4A40-804D-DAEFADC1A059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarAccidents", "CarAccidents\CarAccidents.csproj", "{C98ED190-1965-4A40-804D-DAEFADC1A059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{313BEB6B-4BC6-41CF-A4F2-DFD284B33E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB", "DB\DB.csproj", "{313BEB6B-4BC6-41CF-A4F2-DFD284B33E9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{2D0CEB85-F248-466D-84A0-0D7F16C3DFAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{2D0CEB85-F248-466D-84A0-0D7F16C3DFAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbTests", "DbTests\DbTests.csproj", "{B56B0D4E-8F35-474D-94C9-199473F21E05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbTests", "DbTests\DbTests.csproj", "{B56B0D4E-8F35-474D-94C9-199473F21E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{56E6043A-2FDD-4204-AFC8-B0345E738866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTests", "ServiceTests\ServiceTests.csproj", "{9403A23E-D70E-4758-9AFA-CA22E3AFC2A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{B56B0D4E-8F35-474D-94C9-199473F21E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B56B0D4E-8F35-474D-94C9-199473F21E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B56B0D4E-8F35-474D-94C9-199473F21E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E6043A-2FDD-4204-AFC8-B0345E738866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E6043A-2FDD-4204-AFC8-B0345E738866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E6043A-2FDD-4204-AFC8-B0345E738866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E6043A-2FDD-4204-AFC8-B0345E738866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9403A23E-D70E-4758-9AFA-CA22E3AFC2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9403A23E-D70E-4758-9AFA-CA22E3AFC2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9403A23E-D70E-4758-9AFA-CA22E3AFC2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9403A23E-D70E-4758-9AFA-CA22E3AFC2A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

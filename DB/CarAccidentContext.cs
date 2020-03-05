@@ -45,6 +45,8 @@ namespace DB
 
                 a.Property(p => p.CreatingTime).IsRequired();
 
+                a.Property(p => p.Description).HasMaxLength(2000);
+
                 a.HasOne(p => p.User).WithMany(u => u.Accidents).HasForeignKey(p => p.UserId);
 
                 //a.HasIndex(p => p.UserId);

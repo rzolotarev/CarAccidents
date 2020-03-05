@@ -10,24 +10,39 @@ namespace Services
     {
         private readonly IDbProvider _dbProvider;
 
+        const double _eQuatorialEarthRadius = 6378.1370D;
+        const double _d2r = (Math.PI / 180D);
+
         public CarAccidentService(IDbProvider dbProvider)
         {
             _dbProvider = dbProvider;
         }
 
-        //TODO: calculated in a wrong way
-        //http://www.movable-type.co.uk/scripts/latlong.html
-        //https://stackoverflow.com/questions/365826/calculate-distance-between-2-gps-coordinates
         public IEnumerable<Accident> GetClosestAccidents(double gpsLongitude, double gpsLatitude)
         {
              return _dbProvider.GetCarAccidents()
                                 .Select(a =>
                                 {
-                                    a.Distance = Math.Sqrt(Math.Pow(a.GpsLongitude - gpsLongitude, 2) +
-                                                    Math.Pow(a.GpsLatitude - gpsLatitude, 2));
+                                    a.Distance = HaversineInKM(a.GpsLatitude, a.GpsLongitude, gpsLatitude, gpsLongitude);
                                     return a;
                                 })
                                 .OrderBy(a => a.Distance).ToList();
+        }
+
+        private int HaversineInM(double lat1, double long1, double lat2, double long2)
+        {
+            return (int)(1000D * HaversineInKM(lat1, long1, lat2, long2));
+        }
+
+        private double HaversineInKM(double lat1, double long1, double lat2, double long2)
+        {
+            double dlong = (long2 - long1) * _d2r;
+            double dlat = (lat2 - lat1) * _d2r;
+            double a = Math.Pow(Math.Sin(dlat / 2D), 2D) + Math.Cos(lat1 * _d2r) * Math.Cos(lat2 * _d2r) * Math.Pow(Math.Sin(dlong / 2D), 2D);
+            double c = 2D * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1D - a));
+            double d = _eQuatorialEarthRadius * c;
+
+            return d;
         }
     }
 }

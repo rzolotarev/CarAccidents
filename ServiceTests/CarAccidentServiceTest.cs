@@ -4,6 +4,7 @@ using Moq;
 using Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Xunit;
 
@@ -23,8 +24,8 @@ namespace ServiceTests
             var service = new CarAccidentService(dbProvider.Object);
             var accidents = service.GetClosestAccidents(sourcePoint.GpsLongitude, sourcePoint.GpsLatitude).ToList();
 
-            Assert.Equal("Polska1", accidents[0].Address);
-            Assert.Equal("Polska2", accidents[1].Address);
+            Assert.Equal("Polska1", accidents[1].Address);
+            Assert.Equal("Polska2", accidents[0].Address);
         }
     }
 }

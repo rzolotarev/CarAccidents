@@ -26,7 +26,7 @@ namespace CarAccidents.Controllers
         {
             var accidents = _carAccidentService.GetClosestAccidents(gpsLongitude, gpsLatitude);
 
-            return accidents.Select(a => new CarAccidentViewModel());
+            return accidents.Select(a => CarAccidentViewModel.From(a));
         }
     }
 }

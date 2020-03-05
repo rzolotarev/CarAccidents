@@ -10,8 +10,8 @@ namespace Services
     {
         private readonly IDbProvider _dbProvider;
 
-        const double _eQuatorialEarthRadius = 6378.1370D;
-        const double _d2r = (Math.PI / 180D);
+        const double EQuatorialEarthRadius = 6378.1370D;
+        const double D2r = (Math.PI / 180D);
 
         public CarAccidentService(IDbProvider dbProvider)
         {
@@ -36,11 +36,11 @@ namespace Services
 
         private double HaversineInKM(double lat1, double long1, double lat2, double long2)
         {
-            double dlong = (long2 - long1) * _d2r;
-            double dlat = (lat2 - lat1) * _d2r;
-            double a = Math.Pow(Math.Sin(dlat / 2D), 2D) + Math.Cos(lat1 * _d2r) * Math.Cos(lat2 * _d2r) * Math.Pow(Math.Sin(dlong / 2D), 2D);
+            double dlong = (long2 - long1) * D2r;
+            double dlat = (lat2 - lat1) * D2r;
+            double a = Math.Pow(Math.Sin(dlat / 2D), 2D) + Math.Cos(lat1 * D2r) * Math.Cos(lat2 * D2r) * Math.Pow(Math.Sin(dlong / 2D), 2D);
             double c = 2D * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1D - a));
-            double d = _eQuatorialEarthRadius * c;
+            double d = EQuatorialEarthRadius * c;
 
             return d;
         }
